@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+
+  # Database service for the blog app project
+  blog_app_db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: blogappdb
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - 3306:3306
+    networks:
+      - main
+
+  # Web service for the blog app project
+  blog_app_web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/code
+    depends_on:
+      - blog_app_db
+    networks:
+      - main
+  
+  # A database management tool 
+  db_gui:
+    image: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - main
+
+networks:
+  main:
