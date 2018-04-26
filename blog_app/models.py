@@ -8,6 +8,8 @@ class User_Information(models.Model):
     lastName = models.CharField(max_length=45)
     age = models.IntegerField()
     gender = models.CharField(max_length=1)
+    dateCreated = models.DateTimeField(auto_now=True)
+    lastLogin = models.DateTimeField()
 
 class User_Account(models.Model):
     user_id = models.ForeignKey(User_Information, on_delete=models.CASCADE)
