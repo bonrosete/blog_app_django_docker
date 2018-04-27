@@ -1,7 +1,10 @@
+<a href="login">Login</a>
+<a href="signup">Signup</a>
+
 {% if latest_blog_post %}
     <ul>
         {% for post in latest_blog_post %}
-        <li><a href="{% url 'detail' post.blog_id %}">{{ post.blogTitle }}</a></li>
+        <li><a href="{% url 'blogs:detail' post.blog_id %}">{{ post.blogTitle }}</a></li>
         {% endfor %}
     </ul>
 {% else %}
