@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['docker.me']
 # Application definition
 
 INSTALLED_APPS = [
+    'widget_tweaks',
     'blog_app.apps.BlogAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -112,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Manila'
 
 USE_I18N = True
 

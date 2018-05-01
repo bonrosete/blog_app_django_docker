@@ -1,6 +1,12 @@
-<form action="{% url 'blogs:login' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
-<p>{{ error }}</p>
+{% extends 'blog_app/base.html' %}
+{% block title %}Index{% endblock %}
+{% block head %}{% endblock %}
+
+{% block content %}
+    <form action="{% url 'blogs:login' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
+    <p>{{ error }}</p>
+{% endblock %}

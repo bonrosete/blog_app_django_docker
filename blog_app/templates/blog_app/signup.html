@@ -1,15 +1,20 @@
-SIGN UP PAGE
+{% extends 'blog_app/base.html' %}
+{% block title %}Index{% endblock %}
+{% block head %}{% endblock %}
 
-<form action="{% url 'blogs:signup' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
+{% block content %}
+    SIGN UP PAGE
+    <form action="{% url 'blogs:signup' %}" method="post" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-    {% endfor %}
-</ul>
-{% endif %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}

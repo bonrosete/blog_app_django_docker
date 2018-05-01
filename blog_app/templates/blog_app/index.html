@@ -1,12 +1,23 @@
-<a href="login">Login</a>
-<a href="signup">Signup</a>
+{% extends 'blog_app/base.html' %}
+{% block title %}Index{% endblock %}
+{% block head %}{% endblock %}
 
-{% if latest_blog_post %}
-    <ul>
-        {% for post in latest_blog_post %}
-        <li><a href="{% url 'blogs:detail' post.blog_id %}">{{ post.blogTitle }}</a></li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>There are no posts available.</p>
-{% endif %}
+{% block content %}
+    <!-- <a href="login">Login</a>
+    <a href="signup">Signup</a> -->
+
+    <!-- Display blogs -->
+    <div class="container-fluid">
+            {% if blogs %}
+            <ul>
+                {% for blog in blogs %}
+                    <li><h4><a href="{% url 'blogs:detail' blog.id %}">{{ blog.title }}</a></h3></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no posts available.</p>
+        {% endif %}
+    </div>
+    <!-- End of display blogs -->
+
+{% endblock %}
