@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'blogappdb',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': 'blog_app_db',
+        'HOST': 'db',
         'PORT': 3306,
     }
 }

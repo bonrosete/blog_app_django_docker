@@ -3,7 +3,7 @@ version: '3'
 services:
 
   # Database service for the blog app project
-  blog_app_db:
+  db:
     image: mysql
     environment:
       MYSQL_DATABASE: blogappdb
@@ -14,7 +14,7 @@ services:
       - main
 
   # Web service for the blog app project
-  blog_app_web:
+  web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     ports:
@@ -22,7 +22,7 @@ services:
     volumes:
       - .:/code
     depends_on:
-      - blog_app_db
+      - db
     networks:
       - main
   
